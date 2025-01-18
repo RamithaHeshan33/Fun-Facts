@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun Facts About Me</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #00c6ff, #0072ff);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            width: 600px;
+            max-width: 500px;
+        }
+        h1 {
+            font-size: 2.8em;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+        }
+        #fun-fact {
+            margin: 20px;
+            font-size: 1.6em;
+            transition: opacity 0.5s ease-in-out;
+        }
+        button {
+            padding: 14px 28px;
+            font-size: 1.3em;
+            cursor: pointer;
+            background-color: #ff4081;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #e91e63;
+            transform: translateY(-3px);
+        }
+        #fact-image {
+            width: 250px;
+            height: 250px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: opacity 0.5s ease-in-out, transform 0.3s;
+            opacity: 0;
+        }
+        #fact-image.show {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="container">
+            <h1>Fun Facts About Me</h1>
+            <div id="fun-fact">Press the button to see a fun fact!</div>
+            <button id="view-facts">View Fun Facts</button>
+        </div>
+        <img id="fact-image" src="" alt="Fun Fact Image" style="display: none;">
+    </div>
+
+    <script>
+        const facts = [
+            "My name is Ramitha Heshan.😊",
+            "My favorite cricketer is Mr Mahela Jayawardhana.🏏",
+            "My favorite food is Kottu.🍛",
+            "I play video games in my free time.🎮",
+            "My favorite video game is Black Myth Wukong.🐒"
+        ];
+
+        const images = [
+            "1.png", // Replace with actual image paths
+            "2.png",
+            "3.png",
+            "4.png",
+            "5.png"
+        ];
+
+        let currentFactIndex = 0;
+
+        document.getElementById('view-facts').addEventListener('click', function() {
+            const factElement = document.getElementById('fun-fact');
+            const imageElement = document.getElementById('fact-image');
+            factElement.style.opacity = 0; // Fade out
+            imageElement.classList.remove('show'); // Remove show class to reset animation
+            setTimeout(() => {
+                factElement.textContent = facts[currentFactIndex];
+                imageElement.src = images[currentFactIndex];
+                imageElement.style.display = 'block';
+                imageElement.classList.add('show'); // Add show class to trigger animation
+                factElement.style.opacity = 1; // Fade in
+                currentFactIndex = (currentFactIndex + 1) % facts.length;
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>
