@@ -20,32 +20,34 @@
         }
         .content {
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            gap: 50px;
+            gap: 20px;
+            padding: 20px;
         }
         .container {
             background-color: rgba(255, 255, 255, 0.2);
-            padding: 30px;
+            padding: 20px;
             border-radius: 20px;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
             text-align: center;
-            width: 600px;
-            max-width: 500px;
+            width: 90%;
+            max-width: 600px;
         }
         h1 {
-            font-size: 2.8em;
+            font-size: 2.4em;
             margin-bottom: 20px;
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
         }
         #fun-fact {
             margin: 20px;
-            font-size: 1.6em;
+            font-size: 1.4em;
             transition: opacity 0.5s ease-in-out;
         }
         button {
-            padding: 14px 28px;
-            font-size: 1.3em;
+            padding: 12px 24px;
+            font-size: 1.1em;
             cursor: pointer;
             background-color: #ff4081;
             color: white;
@@ -59,8 +61,9 @@
             transform: translateY(-3px);
         }
         #fact-image {
-            width: 250px;
-            height: 250px;
+            width: 80%;
+            max-width: 250px;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             transition: opacity 0.5s ease-in-out, transform 0.3s;
@@ -69,6 +72,33 @@
         #fact-image.show {
             opacity: 1;
             transform: scale(1.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+            #fun-fact {
+                font-size: 1.2em;
+            }
+            button {
+                font-size: 1em;
+                padding: 10px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            #fun-fact {
+                font-size: 1em;
+            }
+            button {
+                font-size: 0.9em;
+                padding: 8px 16px;
+            }
         }
     </style>
 </head>
